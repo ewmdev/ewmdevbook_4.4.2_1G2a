@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SXCI" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SXCI>
+    <IMPLEMENTATION_DATA>
+     <IMP_NAME>Z_EI_ODLV_EXTEND</IMP_NAME>
+     <TEXT>Extend outbound delivery</TEXT>
+     <IMP_CLASS>ZCL_IM_EI_ODLV_EXTEND</IMP_CLASS>
+     <EXIT_NAME>SMOD_V50B0001</EXIT_NAME>
+     <INTER_NAME>IF_EX_SMOD_V50B0001</INTER_NAME>
+    </IMPLEMENTATION_DATA>
+   </SXCI>
+  </asx:values>
+ </asx:abap>
+</abapGit>
