@@ -57,7 +57,7 @@ CLASS ZCL_IM_EI_ODLV_EXTEND IMPLEMENTATION.
 
 * Fill extension structure
 * Simple example with one field per item only
-    BREAK bpinst.
+    BREAK-POINT ID zewmdevbook_442.
 
     LOOP AT it_lips ASSIGNING FIELD-SYMBOL(<fs_lips>).
       DATA(ls_bapiext) = VALUE bapiext( param = <fs_lips>-vbeln

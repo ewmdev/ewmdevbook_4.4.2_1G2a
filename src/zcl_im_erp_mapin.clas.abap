@@ -10,7 +10,7 @@ public section.
 protected section.
 private section.
 
-  constants C_FIELDNAME type NAME_FELD value 'ZZFIELD1'. ##NO_TEXT.
+  constants C_FIELDNAME type NAME_FELD value 'ZZFIELD1'.
 ENDCLASS.
 
 
@@ -21,6 +21,7 @@ CLASS ZCL_IM_ERP_MAPIN IMPLEMENTATION.
   METHOD /scwm/if_ex_mapin_od_saverepl~mapin.
 
     BREAK-POINT ID zewmdevbook_442.
+
     LOOP AT ct_dlv_request
     ASSIGNING FIELD-SYMBOL(<fs_dlv_req>).
       LOOP AT <fs_dlv_req>-t_item
@@ -29,13 +30,14 @@ CLASS ZCL_IM_ERP_MAPIN IMPLEMENTATION.
         CHECK sy-subrc IS INITIAL.
         DATA(lv_vbeln) = ls_keymap-docno.
         DATA(lv_posnr) = ls_keymap-itemno.
-        READ TABLE it_bapi_extension2
-        ASSIGNING FIELD-SYMBOL(<fs_bapiext>)
-        WITH KEY param = lv_vbeln
-        row = lv_posnr
-        field = c_fieldname.
-        CHECK sy-subrc IS INITIAL.
-        MOVE <fs_bapiext>-value TO <fs_item>-s_eew-zzfield1.
+        TRY.
+            DATA(ls_bapiext) = VALUE #( it_bapi_extension2[ param = lv_vbeln
+                                                            row   = lv_posnr
+                                                            field = c_fieldname ] ).
+          CATCH cx_sy_itab_line_not_found.
+            CONTINUE.
+        ENDTRY.
+        MOVE ls_bapiext-value TO <fs_item>-s_eew-zzfield1.
       ENDLOOP.
     ENDLOOP.
 
