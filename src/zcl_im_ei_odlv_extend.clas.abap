@@ -55,9 +55,9 @@ CLASS ZCL_IM_EI_ODLV_EXTEND IMPLEMENTATION.
 
   METHOD if_ex_smod_v50b0001~exit_saplv50k_007.
 
-* Fill extension structure
-* Simple example with one field per item only
-    BREAK-POINT ID zewmdevbook_442.
+    "Fill delivery interface extension structure from ERP
+    "Simple example with one field per item only
+    BREAK-POINT ID zewmdevbook_1g2a.
 
     LOOP AT it_lips ASSIGNING FIELD-SYMBOL(<fs_lips>).
       DATA(ls_bapiext) = VALUE bapiext( param = <fs_lips>-vbeln
